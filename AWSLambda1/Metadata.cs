@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Amazon.DynamoDBv2.DataModel;
 using Newtonsoft.Json;
 
@@ -17,7 +18,7 @@ namespace LambdaFunctionNamespace
     public class Jsonld
     {
         [DynamoDBProperty("@context")]
-        public Uri Context { get; set; }
+        public string Context { get; set; }
 
         [DynamoDBProperty("@type")]
         public string Type { get; set; }
@@ -26,13 +27,13 @@ namespace LambdaFunctionNamespace
         public Conditions Conditions { get; set; }
 
         [DynamoDBProperty("mappings")]
-        public Mapping[] Mappings { get; set; }
+        public List<Mapping> Mappings { get; set; }
     }
 
     public class Conditions
     {
         [DynamoDBProperty("asset_type")]
-        public string[] AssetType { get; set; }
+        public List<string> AssetType { get; set; }
 
         [DynamoDBProperty("date")]
         public string Date { get; set; }
