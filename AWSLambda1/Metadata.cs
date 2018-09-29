@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Amazon.DynamoDBv2.DataModel;
-using Newtonsoft.Json;
 
 namespace LambdaFunctionNamespace
 {
@@ -12,10 +10,10 @@ namespace LambdaFunctionNamespace
         public string ProcessName { get; set; }
 
         [DynamoDBProperty("jsonld")]
-        public Jsonld Jsonld { get; set; }
+        public Payload Payload { get; set; }
     }
 
-    public class Jsonld
+    public class Payload
     {
         [DynamoDBProperty("@context")]
         public string Context { get; set; }

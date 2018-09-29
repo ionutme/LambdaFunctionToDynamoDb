@@ -40,10 +40,18 @@ namespace LambdaFunctionNamespace
                 var context = new DynamoDBContext(dynamoDb);
 
                 //return await GetRecord(dynamoDb, context);
-                return await SearchForRecord(context);
+                //return await SearchForRecord(context);
+                return await LoadRecord(context);
             }
 
             return "Table not available!";
+        }
+
+        private static async Task<string> LoadRecord(IDynamoDBContext context)
+        {
+            var metadata = await context.LoadAsync<Metadata>("BestXFXDistribution");
+
+            return metadata.Payload.Conditions.AssetType.First();
         }
 
         private static Task<string> SearchForRecord(IDynamoDBContext context)
