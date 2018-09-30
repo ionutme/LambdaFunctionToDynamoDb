@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
 using LambdaFunctionNamespace.DataModel;
+using LambdaFunctionNamespace.Services;
 
-namespace LambdaFunctionNamespace
+namespace LambdaFunctionNamespace.Repository
 {
-    public class MetadataRepository
+    public class MetadataRepository : IMetadataRepository
     {
         private readonly DynamoDbService _dynamoDbService;
 
@@ -16,5 +17,10 @@ namespace LambdaFunctionNamespace
         {
             return await _dynamoDbService.LoadAsync<Metadata>(processName);
         }
+    }
+
+    public interface IMetadataRepository
+    {
+        Task<Metadata> GetAsync(string processName);
     }
 }

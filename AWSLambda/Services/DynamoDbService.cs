@@ -4,7 +4,7 @@ using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.Model;
 using LambdaFunctionNamespace.DataModel;
 
-namespace LambdaFunctionNamespace
+namespace LambdaFunctionNamespace.Services
 {
     public class DynamoDbService
     {

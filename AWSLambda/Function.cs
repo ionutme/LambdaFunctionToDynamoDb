@@ -1,18 +1,20 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Amazon.Lambda.Core;
+using LambdaFunctionNamespace.DataModel;
+using LambdaFunctionNamespace.Repository;
 
 namespace LambdaFunctionNamespace
 {
     public class Function
     {
-        private readonly MetadataRepository _metadataRepository;
+        private readonly IMetadataRepository _metadataRepository;
 
         public Function() : this(new MetadataRepository())
         {
-            
         }
-        public Function(MetadataRepository metadataRepository)
+
+        public Function(IMetadataRepository metadataRepository)
         {
             _metadataRepository = metadataRepository;
         }
