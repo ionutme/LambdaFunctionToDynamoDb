@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
-using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
 using Amazon.Lambda.Core;
 
@@ -23,12 +22,18 @@ namespace LambdaFunctionNamespace
         /// <param name="input"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public string Handler(string input, ILambdaContext context)
+        public async Task<string> Handler(string input, ILambdaContext context)
         {
-            Task<string> response = GetResponse(input);
+            var metadataRepository = new MetadataRepository();
+
+            var metadata = await metadataRepository.GetAsync("BestXFXDistribution");
+
+            return metadata.Payload.Mappings.First().Source + " -> " + metadata.Payload.Mappings.First().Target;
+
+            /*Task<string> response = GetResponse(input);
             response.Wait();
 
-            return response.Result;
+            return response.Result;*/
         }
 
         private static async Task<string> GetResponse(string input)

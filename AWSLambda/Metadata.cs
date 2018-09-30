@@ -3,8 +3,12 @@ using Amazon.DynamoDBv2.DataModel;
 
 namespace LambdaFunctionNamespace
 {
+    public interface IEntity
+    {
+    }
+
     [DynamoDBTable("tbl_metadata")]
-    public class Metadata
+    public class Metadata : IEntity
     {
         [DynamoDBHashKey("ProcessName")]
         public string ProcessName { get; set; }

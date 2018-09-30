@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AWSLambda1\LambdaFunction.csproj" />
+    <ProjectReference Include="..\AWSLambda\LambdaFunction.csproj" />
   </ItemGroup>
 
 </Project>

@@ -21,7 +21,7 @@ namespace LambdaFunctionNamespaceTests
             var context = new TestLambdaContext();
             var upperCase = function.Handler("hello world", context);
 
-            Assert.Equal("HELLO WORLD", upperCase);
+            Assert.Equal("HELLO WORLD", upperCase.Result);
         }
     }
 }

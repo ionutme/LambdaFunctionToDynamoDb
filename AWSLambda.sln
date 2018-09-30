@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaFunction", "AWSLambda1\LambdaFunction.csproj", "{6B067FDA-215E-4630-A376-44270F079F80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaFunction", "AWSLambda\LambdaFunction.csproj", "{6B067FDA-215E-4630-A376-44270F079F80}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaFunction.Tests", "AWSLambda1.Tests\LambdaFunction.Tests.csproj", "{BBB6ACB6-F152-4A17-8750-B68E6719A80B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaFunction.Tests", "AWSLambda.Tests\LambdaFunction.Tests.csproj", "{BBB6ACB6-F152-4A17-8750-B68E6719A80B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
