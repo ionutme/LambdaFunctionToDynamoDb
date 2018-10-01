@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Amazon.Lambda.Core;
+using LambdaFunction.Dependency;
 using LambdaFunctionNamespace.DataModel;
 using LambdaFunctionNamespace.Repository;
 
@@ -23,14 +24,17 @@ namespace LambdaFunctionNamespace
         [LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
         public async Task<string> Handler(string input, ILambdaContext context)
         {
-            return await GetResponse();
+            var dependency = new Dependency();
+            var hello = dependency.Hello;
+
+            return await GetResponse(hello);
         }
 
-        private async Task<string> GetResponse()
+        private async Task<string> GetResponse(string userMessage)
         {
             var metadata = await _metadataRepository.GetAsync("BestXFXDistribution");
 
-            return GetFirstMapping(metadata);
+            return userMessage + " ******* " + GetFirstMapping(metadata);
         }
 
         private static string GetFirstMapping(Metadata metadata)

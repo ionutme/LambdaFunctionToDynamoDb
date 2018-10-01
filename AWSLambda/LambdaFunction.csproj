@@ -14,4 +14,8 @@
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.14.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LambdaFunction.Dependency\LambdaFunction.Dependency.csproj" />
+  </ItemGroup>
+
 </Project>

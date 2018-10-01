@@ -1,8 +1,9 @@
 using Amazon.DynamoDBv2.DataModel;
+using LambdaFunctionNamespace.Services;
 
 namespace LambdaFunctionNamespace.DataModel
 {
-    [DynamoDBTable("tbl_metadata")]
+    [DynamoDBTable(DynamoDbConfig.TableName)]
     public class Metadata : IEntity
     {
         [DynamoDBHashKey("ProcessName")]
